@@ -1,292 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Superman predictions - Premium Betting Insights</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Superman Sports Analysis</title>
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow: hidden;
-            position: relative;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        /* Animated background particles */
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 15s infinite;
-        }
+body{
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(50px);
-                opacity: 0;
-            }
-        }
+.container{
+background:rgba(0,0,0,0.85);
+border-radius:25px;
+padding:40px 30px;
+max-width:450px;
+width:100%;
+box-shadow:0 25px 50px rgba(0,0,0,0.5);
+border:2px solid rgba(255,215,0,0.3);
+}
 
-        .container {
-            background: rgba(0, 0, 0, 0.85);
-            border-radius: 30px;
-            padding: 40px 30px;
-            max-width: 450px;
-            width: 100%;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
-                        0 0 100px rgba(255, 215, 0, 0.3);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            position: relative;
-            z-index: 10;
-            animation: slideIn 0.8s ease-out;
-        }
+.logo{text-align:center;margin-bottom:25px;}
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.logo h1{
+font-size:1.8em;
+background:linear-gradient(45deg,#FFD700,#FFA500,#FFD700);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+font-weight:bold;
+letter-spacing:2px;
+}
 
-        .logo {
-            text-align: center;
-            margin-bottom: 25px;
-        }
+.top-button,.cta-button{
+display:block;
+width:100%;
+padding:14px;
+background:linear-gradient(90deg,#FFD700,#FFA500);
+color:#000;
+text-decoration:none;
+text-align:center;
+border-radius:50px;
+font-size:1em;
+font-weight:bold;
+margin-bottom:20px;
+transition:0.3s;
+}
 
-        .top-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(90deg, #FFD700, #FFA500);
-            color: #000;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 50px;
-            font-size: 0.95em;
-            font-weight: bold;
-            margin-top: 15px;
-            margin-bottom: 25px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
-            border: none;
-            cursor: pointer;
-        }
+.top-button:hover,.cta-button:hover{
+transform:scale(1.05);
+}
 
-        .top-button:hover {
-            background: linear-gradient(90deg, #FFA500, #FFD700);
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
-        }
+.features{list-style:none;margin-bottom:25px;}
 
-        .logo h1 {
-            font-size: 2em;
-            background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-            animation: glow 2s ease-in-out infinite;
-        }
+.features li{
+color:#fff;
+padding:12px 15px;
+margin-bottom:10px;
+font-size:0.95em;
+background:rgba(255,255,255,0.08);
+border-radius:10px;
+border-left:4px solid #FFD700;
+}
 
-        @keyframes glow {
-            0%, 100% {
-                filter: brightness(1);
-            }
-            50% {
-                filter: brightness(1.3);
-            }
-        }
+.features li::before{
+content:"✓ ";
+color:#FFD700;
+font-weight:bold;
+}
 
-        .features {
-            list-style: none;
-            margin-bottom: 35px;
-        }
+.footer-text{
+text-align:center;
+color:rgba(255,255,255,0.6);
+font-size:0.8em;
+margin-top:15px;
+}
 
-        .features li {
-            color: #fff;
-            padding: 12px 15px;
-            margin-bottom: 10px;
-            font-size: 0.95em;
-            background: linear-gradient(90deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
-            border-radius: 12px;
-            border-left: 4px solid #FFD700;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.6s ease-out backwards;
-        }
+.disclaimer{
+color:rgba(255,255,255,0.5);
+font-size:12px;
+text-align:center;
+margin-top:15px;
+}
+</style>
 
-        .features li:nth-child(1) { animation-delay: 0.1s; }
-        .features li:nth-child(2) { animation-delay: 0.2s; }
-        .features li:nth-child(3) { animation-delay: 0.3s; }
-        .features li:nth-child(4) { animation-delay: 0.4s; }
-        .features li:nth-child(5) { animation-delay: 0.5s; }
-        .features li:nth-child(6) { animation-delay: 0.6s; }
-        .features li:nth-child(7) { animation-delay: 0.7s; }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .features li:hover {
-            transform: translateX(10px);
-            background: linear-gradient(90deg, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5));
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
-        }
-
-        .features li::before {
-            content: "✓";
-            color: #FFD700;
-            font-weight: bold;
-            margin-right: 12px;
-            font-size: 1.3em;
-        }
-
-        .cta-button {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(90deg, #FFD700, #FFA500);
-            color: #000;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 50px;
-            font-size: 1.1em;
-            font-weight: bold;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
-            border: none;
-            cursor: pointer;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
-            }
-        }
-
-        .cta-button:hover {
-            background: linear-gradient(90deg, #FFA500, #FFD700);
-            transform: scale(1.08);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.7);
-        }
-
-        .countdown {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .countdown-text {
-            color: #fff;
-            font-size: 1em;
-            margin-bottom: 10px;
-        }
-
-        .countdown-timer {
-            font-size: 2em;
-            color: #FFD700;
-            font-weight: bold;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-            animation: countdownPulse 1s infinite;
-        }
-
-        @keyframes countdownPulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        .click-here {
-            text-align: center;
-            color: #fff;
-            font-size: 0.95em;
-            margin-top: 15px;
-        }
-
-        .click-here a {
-            color: #FFD700;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-
-        .click-here a:hover {
-            color: #FFA500;
-            border-bottom: 2px solid #FFA500;
-        }
-
-        .footer-text {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85em;
-            margin-top: 20px;
-            letter-spacing: 1px;
-        }
-
-        /* Sparkle effect */
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #FFD700;
-            border-radius: 50%;
-            animation: sparkle 1.5s infinite;
-        }
-
-        @keyframes sparkle {
-            0%, 100% {
-                opacity: 0;
-                transform: scale(0);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-    </style>
-    <!-- Meta Pixel Code -->
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -296,104 +101,69 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '1683258719708362');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1683258719708362&ev=PageView&noscript=1"
-/></noscript>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1683258719708362&ev=PageView&noscript=1"/>
+</noscript>
 <!-- End Meta Pixel Code -->
+
 </head>
 <body>
-    <!-- Background particles -->
-    <script>
-        for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.width = Math.random() * 100 + 50 + 'px';
-            particle.style.height = particle.style.width;
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 15 + 's';
-            particle.style.animationDuration = Math.random() * 10 + 10 + 's';
-            document.body.appendChild(particle);
-        }
-    </script>
 
-    <div class="container">
-        <div class="logo">
-            <h1>SUPERMAN PREDICTIONS</h1>
-            <a href="https://t.me/+_b-K6IFXuR0wNDM9" class="top-button" id="topTelegramBtn">
-                Join Telegram Channel
-            </a>
-        </div>
+<div class="container">
 
-        <ul class="features">
-            <li>Live Cricket Analysis</li>
-            <li>Football Pattern Insights</li>
-            <li>Smart Bet Strategy</li>
-            <li>Daily Performance Updates</li>
-            <li>Risk Control Guidance</li>
-            <li>High Accuracy Signals</li>
-            <li>Exclusive Member Access</li>
-        </ul>
+<div class="logo">
+<h1>SUPERMAN SPORTS ANALYSIS</h1>
+<a href="https://t.me/+_b-K6IFXuR0wNDM9" class="top-button" id="topTelegramBtn">
+Join Our Sports Community
+</a>
+</div>
 
-        <a href="https://t.me/+_b-K6IFXuR0wNDM9" class="cta-button" id="telegramBtn">
-            Join Our Telegram Channel
-        </a>
+<ul class="features">
+<li>Live Cricket Match Analysis</li>
+<li>Football Game Insights</li>
+<li>Pre-Match Data Breakdown</li>
+<li>Match Performance Trends</li>
+<li>In-Depth Sports Discussions</li>
+<li>Daily Sports Updates</li>
+<li>Community Learning & Insights</li>
+</ul>
 
-        <div class="countdown">
-            <div class="countdown-text">Redirecting in:</div>
-            <div class="countdown-timer" id="countdown">3</div>
-        </div>
+<a href="https://t.me/+_b-K6IFXuR0wNDM9" class="cta-button" id="telegramBtn">
+Access Sports Community
+</a>
 
-        <div class="click-here">
-            Or <a href="https://t.me/+_b-K6IFXuR0wNDM9" id="clickHere">click here</a> to join now
-        </div>
+<div class="footer-text">
+LIVE MATCH ANALYSIS • PERFORMANCE INSIGHTS • SPORTS COMMUNITY
+</div>
 
-        <div class="footer-text">
-            LIVE UPDATES • WINNING SIGNALS • EXPERT TIPS
-        </div>
-    </div>
+<div class="disclaimer">
+This platform shares sports analysis and general insights for informational purposes only.
+</div>
 
-    <script>
-        // Replace with your actual Telegram channel link
-        const TELEGRAM_LINK = 'https://t.me/+_b-K6IFXuR0wNDM9';
-        
-        let timeLeft = 3;
-        const countdownElement = document.getElementById('countdown');
-        const telegramBtn = document.getElementById('telegramBtn');
-        const topTelegramBtn = document.getElementById('topTelegramBtn');
-        const clickHereLink = document.getElementById('clickHere');
+</div>
 
-        // Update button and link with actual Telegram URL
-        telegramBtn.href = TELEGRAM_LINK;
-        topTelegramBtn.href = TELEGRAM_LINK;
-        clickHereLink.href = TELEGRAM_LINK;
+<script>
+const TELEGRAM_LINK = 'https://t.me/+_b-K6IFXuR0wNDM9';
 
-        // Countdown timer
-        const countdownTimer = setInterval(() => {
-            timeLeft--;
-            countdownElement.textContent = timeLeft;
-            
-            if (timeLeft <= 0) {
-                clearInterval(countdownTimer);
-                countdownElement.textContent = 'Redirecting...';
-                window.location.href = TELEGRAM_LINK;
-            }
-        }, 1000);
+document.getElementById("telegramBtn").addEventListener("click", function() {
+    fbq('track', 'Lead');
+    setTimeout(function(){
+        window.location.href = TELEGRAM_LINK;
+    }, 800);
+});
 
-        // Create sparkles randomly
-        setInterval(() => {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.style.left = Math.random() * 100 + '%';
-            sparkle.style.top = Math.random() * 100 + '%';
-            document.querySelector('.container').appendChild(sparkle);
-            
-            setTimeout(() => {
-                sparkle.remove();
-            }, 1500);
-        }, 300);
-    </script>
+document.getElementById("topTelegramBtn").addEventListener("click", function() {
+    fbq('track', 'Lead');
+    setTimeout(function(){
+        window.location.href = TELEGRAM_LINK;
+    }, 800);
+});
+</script>
+
 </body>
 </html>
