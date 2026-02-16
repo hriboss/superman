@@ -42,21 +42,42 @@ letter-spacing:2px;
 .top-button,.cta-button{
 display:block;
 width:100%;
-padding:14px;
+padding:16px;
 background:linear-gradient(90deg,#FFD700,#FFA500);
 color:#000;
 text-decoration:none;
 text-align:center;
 border-radius:50px;
-font-size:1em;
+font-size:1.05em;
 font-weight:bold;
 margin-bottom:20px;
-transition:0.3s;
+transition:all 0.3s ease;
+position:relative;
+overflow:hidden;
+animation:pulseGlow 2s infinite;
+box-shadow:0 0 15px rgba(255,215,0,0.6);
+cursor:pointer;
 }
 
+/* Hover effect */
 .top-button:hover,.cta-button:hover{
-transform:scale(1.05);
+transform:scale(1.08);
+box-shadow:0 0 25px rgba(255,215,0,0.9);
 }
+
+/* Soft glowing pulse */
+@keyframes pulseGlow{
+0%{
+box-shadow:0 0 10px rgba(255,215,0,0.5);
+}
+50%{
+box-shadow:0 0 25px rgba(255,215,0,0.9);
+}
+100%{
+box-shadow:0 0 10px rgba(255,215,0,0.5);
+}
+}
+
 
 .features{list-style:none;margin-bottom:25px;}
 
